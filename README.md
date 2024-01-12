@@ -10,6 +10,8 @@ Simple HTTP File Server Example
 
 - [Logging library](https://docs.espressif.com/projects/esp-idf/en/v5.1.1/esp32s3/api-reference/system/log.html)
 - [HTTP Server](https://docs.espressif.com/projects/esp-idf/en/v5.1.1/esp32s3/api-reference/protocols/esp_http_server.html)
+- [Simple HTTP File Server Example](https://github.com/espressif/esp-idf/tree/master/examples/protocols/http_server/file_serving)
+- [mDNS Service](https://docs.espressif.com/projects/esp-protocols/mdns/docs/latest/en/index.html)
 
 ## Building
 - Get ESP-IDF
@@ -35,6 +37,10 @@ $ git submodule update --init --recursive
 ```
 $ idf.py set-target esp32s3
 ```
+- Add [mDNS Service](https://components.espressif.com/components/espressif/mdns) component
+```
+$ idf.py add-dependency mdns^1.2.3
+```
 - Change build [Configuration](docs/config.md)
 
 ## Run
@@ -43,6 +49,7 @@ $ idf.py set-target esp32s3
 $ cd ~/esp/esp32_http_file_server
 $ idf.py -p /dev/ttyUSB0 flash monitor
 ```
+- [esp32-fs.local](http://esp32-fs.local/)
 - To exit IDF monitor use the shortcut `Ctrl+]`.
 
 ## Usage
