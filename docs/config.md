@@ -6,14 +6,14 @@
 ## Main
 - Open the project configuration menu
 ```
-$ cd ~/esp/esp32_template
+$ cd ~/esp/esp32_http_file_server
 $ idf.py menuconfig
 ```
 - Project configuration - [Kconfig.projbuild](../main/Kconfig.projbuild)
 
 ## Test
 ```
-$ cd ~/esp/esp32_template/test
+$ cd ~/esp/esp32_http_file_server/test
 $ idf.py menuconfig
 ```
 - Disable watchdog

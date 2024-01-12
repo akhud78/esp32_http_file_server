@@ -16,7 +16,7 @@ set(EXTRA_COMPONENT_DIRS "../components")
 set(TEST_COMPONENTS "bar" CACHE STRING "List of components to test")
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(esp32_template)
+project(esp32_http_file_server)
 
 idf_build_set_property(COMPILE_OPTIONS "-Wno-error=format=" APPEND)
 idf_build_set_property(COMPILE_OPTIONS "-Wno-format" APPEND)

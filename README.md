@@ -1,5 +1,5 @@
-# esp32_template
-ESP-IDF template app
+# esp32_http_file_server
+Simple HTTP File Server Example
 
 ## Requirements
 - Ubuntu 20.04 LTS
@@ -23,11 +23,11 @@ $ ./install.sh
 ```
 $ . $HOME/esp/esp-idf-v5.1.1/export.sh
 ```
-- Clone and setup [project](https://github.com/akhud78/esp32_template)
+- Clone and setup [project](https://github.com/akhud78/esp32_http_file_server)
 ```
 $ cd ~/esp
-$ git clone https://github.com/akhud78/esp32_template
-$ cd ~/esp/esp32_template
+$ git clone https://github.com/akhud78/esp32_http_file_server
+$ cd ~/esp/esp32_http_file_server
 $ git submodule update --init --recursive
 ```
 - Set the chip target to build
@@ -39,7 +39,7 @@ $ idf.py set-target esp32s3
 ## Run
 - Connect development board to your computer and run
 ```
-$ cd ~/esp/esp32_template
+$ cd ~/esp/esp32_http_file_server
 $ idf.py -p /dev/ttyUSB0 flash monitor
 ```
 - To exit IDF monitor use the shortcut `Ctrl+]`.
