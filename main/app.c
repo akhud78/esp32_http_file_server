@@ -16,7 +16,7 @@ static const char *TAG = "app";
 
 void app(void)
 {
-    ESP_LOGW(TAG, "%s", __func__); 
+    ESP_LOGI(TAG, "%s", __func__); 
     
     gpio_reset_pin(BLINK_GPIO);
     gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);

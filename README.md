@@ -9,6 +9,7 @@ Simple HTTP File Server Example
 ## Links
 
 - [Logging library](https://docs.espressif.com/projects/esp-idf/en/v5.1.1/esp32s3/api-reference/system/log.html)
+- [HTTP Server](https://docs.espressif.com/projects/esp-idf/en/v5.1.1/esp32s3/api-reference/protocols/esp_http_server.html)
 
 ## Building
 - Get ESP-IDF
