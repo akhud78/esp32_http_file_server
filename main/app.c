@@ -5,12 +5,14 @@
 
 #include "esp_log.h"
 #include "driver/gpio.h"
-
+#include <netdb.h>
+#include "nvs_flash.h"
 #include "mdns.h"
 
 #include "foo.h"
 #include "bar.h"
 #include "app.h"
+#include "mount.h"
 #include "file_server.h"
 #include "wifi.h"
 
@@ -47,12 +49,21 @@ void app(void)
     foo_init();
     bar_add(1, 2);
     
-    ESP_ERROR_CHECK( wifi_sta_start(WIFI_STA_SSID, WIFI_STA_PASS, NULL, 0, 0) );
+    esp_netif_ip_info_t *p_ip_info = NULL; // use DHCP default
+#ifdef CONFIG_WIFI_STATIC
+    esp_netif_ip_info_t ip_info; // for static IP
+    ip_info.ip.addr = ipaddr_addr(WIFI_STATIC_IP);
+    ip_info.gw.addr = ipaddr_addr(WIFI_STATIC_GW);
+    ip_info.netmask.addr = ipaddr_addr(WIFI_STATIC_MASK);
+    p_ip_info = &ip_info;
+#endif
+    
+    ESP_ERROR_CHECK( wifi_sta_start(WIFI_STA_SSID, WIFI_STA_PASS, p_ip_info, 0, 0) );
     initialise_mdns();
     
     /* Initialize file storage */
-    // ...
     const char* base_path = "/data";
+    ESP_ERROR_CHECK(example_mount_storage(base_path));
     
     /* Start the file server */
     ESP_ERROR_CHECK( file_server_start(base_path) );
