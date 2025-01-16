@@ -54,6 +54,11 @@ $ idf.py menuconfig
     Channel for console output (Default: UART0)  --->
     Channel for console secondary output (No secondary console)  --->
 ```
+- Set Max WiFi TX power :boom:
+```
+(Top)-> Component config -> PHY
+(14) Max WiFi TX power (dBm)
+```
 - Save configuration and build the project
 ```
 $ idf.py build
