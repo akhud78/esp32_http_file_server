@@ -1,12 +1,10 @@
 menu "Project configuration"
 
-    config BLINK_GPIO
-        int "Blink GPIO number"
-        range 0 48
-        default 48
+    config MDNS_HOSTNAME
+        string "mDNS hostname"
+        default "esp32-fs"
         help
-            GPIO number (IOxx) to blink on and off or the RMT signal for the addressable LED.
-            Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+            Hostname that the device will respond to.
 
     config HTTPD_CONN_CLOSE_HEADER
         bool "Send connection close header from request handlers"
@@ -14,5 +12,5 @@ menu "Project configuration"
         help
             If this config item is set, Connection: close header will be set in handlers.
             This closes HTTP connection and frees the server socket instantly.
-
+            
 endmenu

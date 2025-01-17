@@ -9,15 +9,15 @@
 #include "nvs_flash.h"
 #include "mdns.h"
 
-#include "foo.h"
-#include "bar.h"
+//#include "foo.h"
+//#include "bar.h"
 #include "app.h"
 #include "mount.h"
 #include "file_server.h"
 #include "wifi.h"
 
-#define BLINK_GPIO          (CONFIG_BLINK_GPIO)
-#define MDNS_HOSTNAME       "esp32-fs"        //(CONFIG_MDNS_HOSTNAME)
+//#define BLINK_GPIO          (CONFIG_BLINK_GPIO)
+#define MDNS_HOSTNAME       (CONFIG_MDNS_HOSTNAME)
 
 static const char *TAG = "app";
 
@@ -39,6 +39,7 @@ void app(void)
 {
     ESP_LOGI(TAG, "%s", __func__); 
     
+    /*
     gpio_reset_pin(BLINK_GPIO);
     gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
     gpio_set_level(BLINK_GPIO, 1);
@@ -48,6 +49,7 @@ void app(void)
     
     foo_init();
     bar_add(1, 2);
+    */
     
     esp_netif_ip_info_t *p_ip_info = NULL; // use DHCP default
 #ifdef CONFIG_WIFI_STATIC

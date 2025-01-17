@@ -8,7 +8,6 @@ Simple HTTP File Server Example
 
 ## Links
 
-- [Logging library](https://docs.espressif.com/projects/esp-idf/en/v5.4/esp32s3/api-reference/system/log.html)
 - [HTTP Server](https://docs.espressif.com/projects/esp-idf/en/v5.4/esp32s3/api-reference/protocols/esp_http_server.html)
 - [Simple HTTP File Server Example](https://github.com/espressif/esp-idf/tree/release/v5.4/examples/protocols/http_server/file_serving)
 - [mDNS Service](https://docs.espressif.com/projects/esp-protocols/mdns/docs/latest/en/index.html)
@@ -42,6 +41,7 @@ $ idf.py set-target esp32s3
 ```
 $ idf.py add-dependency "espressif/mdns^1.4.3"
 ```
+- Add [wi-fi component](https://github.com/akhud78/esp32_wifi) into `components` folder.
 - Change build [Configuration](docs/config.md)
 
 ## Run
@@ -49,9 +49,28 @@ $ idf.py add-dependency "espressif/mdns^1.4.3"
 ```
 $ cd ~/esp/esp32_http_file_server
 $ idf.py -p /dev/ttyUSB0 flash monitor
+...
+I (709) wifi: got ip:192.168.1.129
+I (719) wifi: connected to ap SSID:Keenetic-1234 password:qwerty42
+I (729) app: mdns hostname set to: [esp32-fs]
+I (729) example_mount: Initializing SPIFFS
+I (769) example_mount: Partition size: total: 836081, used: 36144
+I (769) file_server: Starting HTTP Server on port: '80'
+I (769) app: File server started
+I (1619) wifi:<ba-add>idx:0 (ifx:0, 50:ff:20:58:60:12), tid:0, ssn:2, winSize:64
 ```
-- [esp32-fs.local](http://esp32-fs.local/)
+- Upload [image.jpeg](docs/image.jpeg) to `ESP32 File Server`.
+- Open [esp32-fs.local](http://esp32-fs.local/) and check.
+
+![esp32-fs](docs/esp32-fs.png)
+
+```
+...
+I (122469) file_server: Found file : image.jpeg (35588 bytes)
+I (124909) file_server: Sending file : /image.jpeg (35588 bytes)...
+I (124989) file_server: File sending complete
+I (124989) file_server: bytes=35588 run_time_ms=82 bps=3472000
+```
 - To exit IDF monitor use the shortcut `Ctrl+]`.
 
-## Usage
-- [Tests](docs/tests.md)
+
