@@ -6,6 +6,7 @@
 #include "esp_log.h"
 
 #include "app.h"
+#include "file_server.h"
 
 extern "C" void app_main(void) 
 {

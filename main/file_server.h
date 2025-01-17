@@ -4,10 +4,9 @@
 extern "C" {
 #endif
 
-int foo_init(void);
+esp_err_t file_server_start(const char *base_path);
 
 #ifdef __cplusplus
 }
 #endif
-
 

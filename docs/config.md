@@ -6,47 +6,48 @@
 ## Main
 - Open the project configuration menu
 ```
-$ cd ~/esp/esp32_template
+$ cd ~/esp/esp32_http_file_server
 $ idf.py menuconfig
 ```
 - Project configuration - [Kconfig.projbuild](../main/Kconfig.projbuild)
 
-## Test
-```
-$ cd ~/esp/esp32_template/test
-$ idf.py menuconfig
-```
-- Disable watchdog
-
-```
-(Top) -> Component config -> ESP System Settings
-[ ] Interrupt watchdog
-[ ] Initialize Task Watchdog Timer on startup
-
-(Top) -> Component config -> Unity unit testing library
-[*] Colorize test output
-```
 ## Common
-- Enable SPI RAM
-```
-(Top) -> Component config -> ESP PSRAM -> 
-         Support for external, SPI-connected RAM -> SPI RAM config
 
-    Mode (QUAD/OCT) of SPI RAM chip in use (Quad Mode PSRAM)  --->
+- Project configuration
 ```
-- Use Custom partition table
-- [partitions.csv](../partitions.csv)
+(Top) -> Project configuration
+
+(esp32-fs) mDNS hostname
+[*] Send connection close header from request handlers
 ```
-(Top) -> Partition Table
-    Partition Table (Custom partition table CSV)  --->
-(partitions.csv) Custom partition CSV file
-(0x8000) Offset of partition table
-[*] Generate an MD5 checksum for the partition table
+- Wi-Fi Station Configuration
 ```
-- Set Flash size  to 8 MB
+(Top) -> Component config -> Wi-Fi Station Configuration
+
+(Keenetic-1234) Wi-Fi SSID
+(qwerty42) Wi-Fi Password
+(2) Maximum retry
+(60) Connection Retry Period (s)
+[*] Use static IP
+(192.168.1.129) IP address
+(192.168.1.1) Gateway (NEW)
+(255.255.255.0) Mask (NEW)
 ```
-(Top) -> Serial flasher config
-    Flash size (8 MB)  --->
+- Using with [esp32_nat_router](https://github.com/akhud78/esp32_nat_router)
+```
+(s3hotspot) Wi-Fi SSID
+(12345678) Wi-Fi Password
+(2) Maximum retry
+(60) Connection Retry Period (s)
+[*] Use static IP
+(192.168.4.100) IP address
+(192.168.4.1) Gateway
+(255.255.255.0) Mask
+```
+- Set Max WiFi TX power :boom:
+```
+(Top)-> Component config -> PHY
+(14) Max WiFi TX power (dBm)
 ```
 - Use UART0 for console output
 ```
