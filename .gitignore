@@ -4,6 +4,14 @@ sdkconfig.old
 dependencies.lock
 managed_components/
 
-build/
+build/**
+!build/esp32
+!build/esp32/*
+!build/esp32c3
+!build/esp32c3/*
+!build/esp32s3
+!build/esp32s3/bootloader.bin
+!build/esp32s3/partition-table.bin
+
 tmp/
 bak/

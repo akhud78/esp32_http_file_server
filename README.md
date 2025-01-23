@@ -73,4 +73,32 @@ I (124989) file_server: bytes=35588 run_time_ms=82 bps=3472000
 ```
 - To exit IDF monitor use the shortcut `Ctrl+]`.
 
+## Flashing the prebuild Binaries
+
+- Get and install [esptool](https://github.com/espressif/esptool):
+
+```
+cd ~
+python3 -m pip install pyserial
+git clone https://github.com/espressif/esptool
+cd esptool
+python3 setup.py install
+```
+
+Go to `esp32_http_file_server` project directory and build for any kind of esp32 target.
+
+- For esp32s3:
+
+```bash
+esptool.py --port /dev/ttyACM0 erase_flash
+esptool.py --chip esp32s3 --port /dev/ttyACM0 \
+--before=default_reset --after=hard_reset write_flash \
+--flash_mode dio --flash_freq 80m --flash_size detect \
+0x0 build/esp32s3/bootloader.bin \
+0x8000 build/esp32s3/partition-table.bin \
+0x10000 build/esp32s3/esp32_http_file_server.bin
+```
+
+As an alternative you might use [Espressif's Flash Download Tools](https://www.espressif.com/en/products/hardware/esp32/resources).
+
 

@@ -20,6 +20,13 @@ $ idf.py menuconfig
 (esp32-fs) mDNS hostname
 [*] Send connection close header from request handlers
 ```
+- Set HTTP Request Header Length
+```
+(Top) -> Component config -> HTTP Server
+
+(1024) Max HTTP Request Header Length
+(1024) Max HTTP URI Length
+```
 - Wi-Fi Station Configuration
 ```
 (Top) -> Component config -> Wi-Fi Station Configuration
