@@ -9,7 +9,6 @@
 $ docker run -p 8000:80 kennethreitz/httpbin
 ```
 - Check [localhost:8000](http://localhost:8000)  httpbin
-- Define server `URL`
 ```
 $ SOCK=localhost:8000
 ```
