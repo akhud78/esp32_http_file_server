@@ -35,10 +35,7 @@ $ idf.py menuconfig
 (qwerty42) Wi-Fi Password
 (2) Maximum retry
 (60) Connection Retry Period (s)
-[*] Use static IP
-(192.168.1.129) IP address
-(192.168.1.1) Gateway (NEW)
-(255.255.255.0) Mask (NEW)
+[ ] Use static IP
 ```
 - Using with [esp32_nat_router](https://github.com/akhud78/esp32_nat_router)
 ```
@@ -56,11 +53,10 @@ $ idf.py menuconfig
 (Top)-> Component config -> PHY
 (14) Max WiFi TX power (dBm)
 ```
-- Use UART0 for console output
+- Use `USB Serial` for console output
 ```
 (Top) -> Component config -> ESP System Settings
-    Channel for console output (Default: UART0)  --->
-    Channel for console secondary output (No secondary console)  --->
+    Channel for console output (USB Serial/JTAG Controller)  --->
 ```
 - Save configuration and build the project
 ```
@@ -69,16 +65,7 @@ $ idf.py build
 - Connect your device
 - Flash onto the device
 ```
-$ idf.py -p /dev/ttyUSB0 flash monitor
+$ idf.py -p /dev/ttyACM0 erase-flash
+$ idf.py -p /dev/ttyACM0 flash monitor
 ```
 - To exit IDF monitor use the shortcut `Ctrl+]`.
-
-## Permission denied error
-```
-PermissionError: [Errno 13] Permission denied: '/dev/ttyUSB0'
-```
-Fix this issue with the following commands:
-```
-sudo usermod -a -G tty $USER
-sudo usermod -a -G dialout $USER
-```

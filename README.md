@@ -59,7 +59,9 @@ I (769) file_server: Starting HTTP Server on port: '80'
 I (769) app: File server started
 I (1619) wifi:<ba-add>idx:0 (ifx:0, 50:ff:20:58:60:12), tid:0, ssn:2, winSize:64
 ```
-- Upload [image.jpeg](docs/image.jpeg) to `ESP32 File Server`.
+- Upload files to `ESP32 File Server`
+    - [image.jpeg](docs/image.jpeg)
+    - [mobydick.html](docs/mobydick.html) 
 - Open [esp32-fs.local](http://esp32-fs.local/) and check.
 
 ![esp32-fs](docs/esp32-fs.png)
@@ -101,4 +103,5 @@ esptool.py --chip esp32s3 --port /dev/ttyACM0 \
 
 As an alternative you might use [Espressif's Flash Download Tools](https://www.espressif.com/en/products/hardware/esp32/resources).
 
-
+## Usage
+- [Tests](docs/tests.md)
